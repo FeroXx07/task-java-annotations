@@ -13,9 +13,18 @@ public class Employee {
         this.wagePerHour = wagePerHour;
     }
 
+    protected BigDecimal getWagePerHour() {return wagePerHour;}
+
     public BigDecimal calculateSalary(int hoursWorked) {
         return wagePerHour.multiply(BigDecimal.valueOf(hoursWorked));
     }
 
-    protected BigDecimal getWagePerHour() {return wagePerHour;}
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", wagePerHour=" + wagePerHour +
+                '}';
+    }
 }
