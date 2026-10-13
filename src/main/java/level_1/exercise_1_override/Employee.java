@@ -16,4 +16,6 @@ public class Employee {
     public BigDecimal calculateSalary(int hoursWorked) {
         return wagePerHour.multiply(BigDecimal.valueOf(hoursWorked));
     }
+
+    protected BigDecimal getWagePerHour() {return wagePerHour;}
 }
