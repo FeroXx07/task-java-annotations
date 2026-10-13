@@ -1,4 +1,4 @@
-package level_1.exercise_1_override;
+package level_1;
 
 import java.math.BigDecimal;
 
@@ -15,5 +15,10 @@ public class RemoteEmployee extends Employee {
         return getWagePerHour()
                 .multiply(BigDecimal.valueOf(hoursWorked))
                 .add(internetCosts);
+    }
+
+    @Deprecated
+    public BigDecimal getExtraCovidInternetCosts() {
+        return internetCosts.multiply(BigDecimal.valueOf(1.5));
     }
 }
