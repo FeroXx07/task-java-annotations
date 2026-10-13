@@ -1,20 +1,26 @@
 package level_2;
 
+import Utils.FileManager;
+
 import java.lang.reflect.Field;
+import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SimpleJsonSerializer {
     static final String QUOTATION = "\"";
+    static FileManager fileManager = new FileManager();
+
     public static String serialize(Object object) throws IllegalArgumentException, IllegalAccessException {
         if (object == null) {
             throw new IllegalArgumentException("Object cannot be null");        }
 
-        JsonSerializable jsonSerializable = object.getClass().getAnnotation(JsonSerializable.class);
-
-        if (jsonSerializable == null) {
+        if (!object.getClass().isAnnotationPresent(JsonSerializable.class)) {
             throw new IllegalAccessException("Class must have @JsonSerializable");
         }
+
+        JsonSerializable jsonSerializable = object.getClass().getAnnotation(JsonSerializable.class);
 
         Map<String, String> jsonElementsMap = new HashMap<>();
         Field[] fields = object.getClass().getDeclaredFields();
@@ -40,6 +46,8 @@ public class SimpleJsonSerializer {
                 .append(QUOTATION);
         }
         json.append("}");
+
+        fileManager.saveContentsToFile(List.of(json.toString()), Path.of(jsonSerializable.directory()));
         return json.toString();
     }
 }

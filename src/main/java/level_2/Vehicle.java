@@ -3,7 +3,7 @@ package level_2;
 import java.io.Serializable;
 import java.util.Objects;
 
-@JsonSerializable(directory = "src/main/resources/vehicles")
+@JsonSerializable(directory = "src/main/resources/vehicle.json")
 public class Vehicle implements Serializable {
     private String model;
     private String color;
