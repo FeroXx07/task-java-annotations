@@ -17,5 +17,6 @@ En els treballadors online, el mètode per calcular el seu sou rebrà per paràm
 ##  Instal·lació i Execució
 1. Clonar el repositori: `git clone ...`
 2. Execució de l'aplicació.
-3. Proves: Executar el `Main()`.
+3. Demostració: Executar el `Main()`.
+4. Proves: Executar les piles de test a `src/test/java`
 
