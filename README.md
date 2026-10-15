@@ -10,4 +10,4 @@
 
 ## 🚀 Instal·lació i Execució
 1. Clonar el repositori: `git clone ...`
-2. Execució de l'aplicació: executar les proves en el main de cada exercici.
+2. Execució de l'aplicació: instruccions a cada readme del nivell/exercici.
