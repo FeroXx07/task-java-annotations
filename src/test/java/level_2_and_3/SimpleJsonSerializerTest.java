@@ -15,7 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class SimpleJsonSerializerTest {
 
     @ParameterizedTest
-    @CsvSource("BMW, Black, 4, 150")
+    @CsvSource({"BMW, Black, 4, 150, '{\"horsePower\":\"150\",\"color\":\"Black\",\"numTyres\":\"4\",\"model\":\"BMW\"}'",
+            "Ferrari, '\"Red\"', 4, 296, '{\"horsePower\":\"296\",\"color\":\"\"Red\"\",\"numTyres\":\"4\",\"model\":\"Ferrari\"}'"})
     void serialize(ArgumentsAccessor arguments) throws IllegalAccessException {
         Vehicle vehicle = new Vehicle(
                 arguments.getString(0),
@@ -26,5 +27,6 @@ class SimpleJsonSerializerTest {
         String result = SimpleJsonSerializer.serialize(vehicle);
         assertThat(result).isNotNull();
         assertThat(result).isNotBlank();
+        assertThat(result).isEqualTo(arguments.getString(4));
     }
 }
