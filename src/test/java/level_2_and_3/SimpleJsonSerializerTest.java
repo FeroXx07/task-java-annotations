@@ -24,9 +24,10 @@ class SimpleJsonSerializerTest {
                 arguments.getInteger(2),
                 arguments.getInteger(3));
 
-        String result = SimpleJsonSerializer.serialize(vehicle);
-        assertThat(result).isNotNull();
-        assertThat(result).isNotBlank();
-        assertThat(result).isEqualTo(arguments.getString(4));
+        String actualResult = SimpleJsonSerializer.serialize(vehicle);
+        String expectedResult = arguments.getString(4);
+        assertThat(actualResult).isNotNull();
+        assertThat(actualResult).isNotBlank();
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 }
